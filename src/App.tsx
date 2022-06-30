@@ -18,7 +18,7 @@ function App() {
         {Array(1)
           .fill(1)
           .map((el, i) => {
-            const imgsrc = `https://picsxum.photos/600/400?text=${i + 1}`;
+            const imgsrc = `https://picsum.photos/600/400?text=${i + 1}`;
             return (
               <PageResponsiveImage key={i} src={imgsrc} imgRatio={3 / 2} />
             );

@@ -40,11 +40,9 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
   }, [ref, imgRatio]);
 
   const onLoad = useCallback(() => {
-    console.log('onLoad');
     setIsLoaded(true);
   }, []);
   const onError = useCallback(() => {
-    console.log('onError');
     setIsError(true);
   }, []);
 
