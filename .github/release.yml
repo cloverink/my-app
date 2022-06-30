@@ -1,0 +1,75 @@
+name: Release
+
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NODE_VERSION: 16.15.1
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 🐢 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 💵 Cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: ⬇️ Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 🐢 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: 💵 Cache dependencies
+        id: cache
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: modules-${{ hashFiles('package-lock.json') }}
+
+      - name: ⬇️ Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        id: semantic
+        with:
+          branches: |
+            [
+              'main'
+            ]
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/changelog
+        env:
+          GITHUB_TOKEN: ${{ env.GH_TOKEN }}
+          NPM_TOKEN: ${{ env.GH_TOKEN }}
