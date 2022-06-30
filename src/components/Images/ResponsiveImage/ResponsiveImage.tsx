@@ -40,9 +40,11 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
   }, [ref, imgRatio]);
 
   const onLoad = useCallback(() => {
+    console.log('onLoad');
     setIsLoaded(true);
   }, []);
   const onError = useCallback(() => {
+    console.log('onError');
     setIsError(true);
   }, []);
 
@@ -53,9 +55,10 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
       style={{ maxHeight: containerMaxHeight }}
       onClick={onClick}
     >
-      {!isLoaded && (
-        <PlaceholderImage isStatic={isError} imgRatio={placeHolderRatio} />
-      )}
+      {!isLoaded ||
+        (isError && (
+          <PlaceholderImage isStatic={isError} imgRatio={placeHolderRatio} />
+        ))}
       {!isError && (
         <img
           alt={alt}
