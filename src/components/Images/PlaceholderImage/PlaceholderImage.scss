@@ -32,7 +32,10 @@
 
   svg {
     display: block;
-    width: 100%;
+  }
+
+  &+img {
+    visibility: hidden;
   }
 }
 

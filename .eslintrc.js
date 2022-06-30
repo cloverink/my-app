@@ -39,7 +39,9 @@ const config = {
     {
       files: ['**/*.stories.*'],
       rules: {
-        'import/no-anonymous-default-export': 'off'
+        'import/no-anonymous-default-export': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+        '@typescript-eslint/no-unsafe-assignment': 'off'
       }
     }
   ],

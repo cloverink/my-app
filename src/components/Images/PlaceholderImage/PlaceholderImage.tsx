@@ -14,7 +14,7 @@ const PlaceholderImage: React.FC<PlaceholderImageType> = ({
   return (
     <div
       className="image-placeholder"
-      style={{ paddingTop: `${imgRatio * 100}%` }}
+      style={{ paddingTop: `calc(${imgRatio * 100}% - 1px)` }}
     >
       <svg
         className={classNames(
