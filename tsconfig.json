@@ -21,7 +21,8 @@
   "include": [
     "src",
     "*.config.*",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "__tests__",
   ],
   "exclude": [
     "node_modules",
