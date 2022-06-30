@@ -41,8 +41,12 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
     setPlaceHolderRatio(height / width);
   }, [ref, imgRatio]);
 
-  const onLoad = useCallback(() => setIsLoaded(true), []);
-  const onError = useCallback(() => setIsError(true), []);
+  const onLoad = useCallback(() => {
+    setIsLoaded(true);
+  }, []);
+  const onError = useCallback(() => {
+    setIsError(true);
+  }, []);
 
   return (
     <picture

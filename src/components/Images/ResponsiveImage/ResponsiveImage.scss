@@ -6,7 +6,9 @@
   height: 100%;
   max-height: none;
 
-  svg {
-    display: block;
+  img {
+    width: 100%;
+    position: relative;
+    top: 0;
   }
 }

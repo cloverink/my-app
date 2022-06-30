@@ -5,13 +5,20 @@ import PageResponsiveImage from './examples/responsive-image';
 function App() {
   return (
     <>
-      <div className="underline font-bold">hello</div>
-
+      <div className="underline font-bold">hello my-app</div>
       <div className="max-w-screen-xl">
-        {Array(100)
+        {Array(10)
           .fill(1)
           .map((el, i) => {
             const imgsrc = `https://picsum.photos/1600/900?text=${i + 1}`;
+            return (
+              <PageResponsiveImage key={i} src={imgsrc} imgRatio={16 / 9} />
+            );
+          })}
+        {Array(10)
+          .fill(1)
+          .map((el, i) => {
+            const imgsrc = `https://picsum.photos/600/600?text=${i + 1}`;
             return (
               <PageResponsiveImage key={i} src={imgsrc} imgRatio={1 / 1} />
             );
