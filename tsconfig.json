@@ -20,7 +20,8 @@
   },
   "include": [
     "src",
-    "*.config.*"
+    "*.config.*",
+    ".eslintrc.js"
   ],
   "exclude": [
     "node_modules",
