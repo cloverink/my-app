@@ -1,3 +1,4 @@
-import '../index.css';
+import '../index.scss';
 
-export { default as ResponsiveImage } from './ResponsiveImage';
+export { default as PlaceholderImage } from './Images/PlaceholderImage';
+export { default as ResponsiveImage } from './Images/ResponsiveImage';

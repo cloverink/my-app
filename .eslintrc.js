@@ -22,7 +22,7 @@ const config = {
     jest: true
   },
   rules: {
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': 'warn',
     'import/no-unresolved': 'error'
   },
   overrides: [
