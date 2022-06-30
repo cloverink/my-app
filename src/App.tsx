@@ -8,7 +8,7 @@ function App() {
       <div className="underline font-bold">hello</div>
 
       <div className="max-w-screen-xl">
-        {Array(1)
+        {Array(100)
           .fill(1)
           .map((el, i) => {
             const imgsrc = `https://picsum.photos/1600/900?text=${i + 1}`;
