@@ -5,6 +5,8 @@
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "src/stories",
+    "src/examples"
   ]
 }
