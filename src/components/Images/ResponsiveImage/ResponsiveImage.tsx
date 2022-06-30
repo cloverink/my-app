@@ -12,21 +12,19 @@ import classNames from 'classnames';
 import './ResponsiveImage.scss';
 
 export type ResponsiveImageType = {
+  alt?: string;
+  className?: string;
+  imgRatio?: number;
   onClick?: MouseEventHandler<HTMLPictureElement>;
   src: string;
-  alt?: string;
-  width?: number;
-  height?: number;
-  imgRatio?: number;
-  className?: string;
 };
 
 const ResponsiveImage: React.FC<ResponsiveImageType> = ({
   alt,
-  src,
-  className = '',
+  className,
+  imgRatio = 1,
   onClick,
-  imgRatio = 1
+  src
 }) => {
   const ref = useRef<HTMLPictureElement>();
   const [isError, setIsError] = useState(false);
