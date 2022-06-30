@@ -36,11 +36,9 @@ const config = {
       }
     },
     {
-      "files": [
-        "**/*.stories.*"
-      ],
-      "rules": {
-        "import/no-anonymous-default-export": "off"
+      files: ['**/*.stories.*'],
+      rules: {
+        'import/no-anonymous-default-export': 'off'
       }
     }
   ],
