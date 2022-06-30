@@ -1,11 +1,26 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test"
+    "start": "rollup -cw",
+    "build": "rollup -c",
+    "lint": "eslint . --max-warnings=0",
+    "test": "jest --runInBand",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "@types/jest": "28.1.3",
