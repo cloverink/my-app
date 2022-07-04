@@ -66,6 +66,7 @@
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jest-dom": "4.0.2",
     "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "node-sass": "7.0.1",
