@@ -1,10 +1,4 @@
-import React, {
-  MouseEventHandler,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { MouseEventHandler, useCallback, useState } from 'react';
 import PlaceholderImage from '../PlaceholderImage';
 
 import classNames from 'classnames';
@@ -26,11 +20,10 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
   onClick,
   src
 }) => {
-  const ref = useRef<HTMLPictureElement>(null);
   const [isError, setIsError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [placeHolderRatio, setPlaceHolderRatio] = useState(1);
-  const [containerMaxHeight, setContainerMaxHeight] = useState(0);
+  // const [placeHolderRatio, setPlaceHolderRatio] = useState(1);
+  // const [containerMaxHeight, setContainerMaxHeight] = useState(0);
 
   // useEffect(() => {
   //   const handleResize = () => {
@@ -53,13 +46,9 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
   }, []);
 
   return (
-    <picture
-      ref={ref}
-      className={classNames('picture', className)}
-      onClick={onClick}
-    >
+    <picture className={classNames('picture', className)} onClick={onClick}>
       {(!isLoaded || isError) && (
-        <PlaceholderImage isStatic={isError} imgRatio={placeHolderRatio} />
+        <PlaceholderImage isStatic={isError} imgRatio={1} />
       )}
       {!isError && (
         <img
