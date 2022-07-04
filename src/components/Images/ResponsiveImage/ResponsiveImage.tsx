@@ -26,7 +26,7 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
   onClick,
   src
 }) => {
-  const ref = useRef<HTMLPictureElement>();
+  const ref = useRef<HTMLPictureElement>(null);
   const [isError, setIsError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [placeHolderRatio, setPlaceHolderRatio] = useState(1);
