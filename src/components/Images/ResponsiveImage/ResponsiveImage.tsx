@@ -33,10 +33,16 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
   const [containerMaxHeight, setContainerMaxHeight] = useState(0);
 
   useEffect(() => {
-    const width = ref.current?.clientWidth;
-    const height = width / imgRatio;
-    setContainerMaxHeight(height);
-    setPlaceHolderRatio(height / width);
+    const handleResize = () => {
+      const width = ref.current?.clientWidth;
+      const height = width / imgRatio;
+      setContainerMaxHeight(height);
+      setPlaceHolderRatio(height / width);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
   }, [ref, imgRatio]);
 
   const onLoad = useCallback(() => {
@@ -50,13 +56,12 @@ const ResponsiveImage: React.FC<ResponsiveImageType> = ({
     <picture
       ref={ref}
       className={classNames('picture', className)}
-      style={{ maxHeight: containerMaxHeight }}
+      style={isLoaded ? {} : { maxHeight: containerMaxHeight }}
       onClick={onClick}
     >
-      {!isLoaded ||
-        (isError && (
-          <PlaceholderImage isStatic={isError} imgRatio={placeHolderRatio} />
-        ))}
+      {(!isLoaded || isError) && (
+        <PlaceholderImage isStatic={isError} imgRatio={placeHolderRatio} />
+      )}
       {!isError && (
         <img
           alt={alt}

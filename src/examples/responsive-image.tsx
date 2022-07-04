@@ -1,13 +1,13 @@
 import { ResponsiveImage } from '../components';
 
-const style = {
-  width: '100%',
-  maxWidth: '600px'
-};
-
 const PageResponsiveImage = (props) => {
   return (
-    <div style={style}>
+    <div
+      style={{
+        width: '100%',
+        maxWidth: '600px'
+      }}
+    >
       <ResponsiveImage {...props} />
     </div>
   );
