@@ -1,0 +1,34 @@
+name: Prepare NodeJS
+description: Setup and Cache NodeJS
+
+# inputs:
+#   node-version:
+#     description: NodeJS version
+#     required: true
+#     default: 16.15.1
+#   path:
+#     description: Cache path
+#     required: true
+#     default: '**/node_modules'
+#   key:
+#     description: Cache Name
+#     required: true
+#     default: modules-${{ hashFiles('package-lock.json') }}
+
+runs:
+  steps:
+    - name: 🐢 Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.15.1
+
+    - name: 💵 Cache dependencies
+      id: cache
+      uses: actions/cache@v3
+      with:
+        path: '**/node_modules'
+        key: modules-${{ hashFiles('package-lock.json') }}
+
+    - name: ⬇️ Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install

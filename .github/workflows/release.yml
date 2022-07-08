@@ -18,11 +18,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: setup node
+        uses: ./.github/actions/setup-node
+
       - name: 🐢 Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
 
       - name: 💵 Cache dependencies
         id: cache
