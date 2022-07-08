@@ -15,5 +15,9 @@ module.exports = {
           'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
       }
     ]
+  ],
+  branches: [
+    { name: 'master' },
+    { name: 'feat/*', prerelease: '${name.replace(/^feat\\//g, "")}' }
   ]
 };
