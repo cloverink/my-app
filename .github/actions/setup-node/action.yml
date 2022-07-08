@@ -18,11 +18,13 @@ description: Setup and Cache NodeJS
 runs:
   steps:
     - name: 🐢 Setup Node
+      shell: bash
       uses: actions/setup-node@v3
       with:
         node-version: 16.15.1
 
     - name: 💵 Cache dependencies
+      shell: bash
       id: cache
       uses: actions/cache@v3
       with:
@@ -30,5 +32,6 @@ runs:
         key: modules-${{ hashFiles('package-lock.json') }}
 
     - name: ⬇️ Install Dependencies
+      shell: bash
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm install
