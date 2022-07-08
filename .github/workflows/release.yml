@@ -21,22 +21,6 @@ jobs:
       - name: setup node
         uses: ./.github/actions/setup-node
 
-      - name: 🐢 Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: 💵 Cache dependencies
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: '**/node_modules'
-          key: modules-${{ hashFiles('package-lock.json') }}
-
-      - name: ⬇️ Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
-
   release:
     name: Release
     runs-on: ubuntu-latest
@@ -47,21 +31,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🐢 Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: 💵 Cache dependencies
-        id: cache
-        uses: actions/cache@v3
-        with:
-          path: '**/node_modules'
-          key: modules-${{ hashFiles('package-lock.json') }}
-
-      - name: ⬇️ Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm install
+      - name: setup node
+        uses: ./.github/actions/setup-node
 
       - name: build
         run: npm run build
