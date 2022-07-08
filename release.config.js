@@ -15,6 +15,5 @@ module.exports = {
           'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
       }
     ]
-  ],
-  branches: ['master', { name: 'feat/*', channel: 'beta', prerelease: true }]
+  ]
 };
