@@ -20,6 +20,8 @@ jobs:
 
       - name: setup node
         uses: ./.github/actions/setup-node
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
   release:
     name: Release
@@ -33,6 +35,8 @@ jobs:
 
       - name: setup node
         uses: ./.github/actions/setup-node
+        with:
+          node-version: ${{ env.NODE_VERSION }}
 
       - name: build
         run: npm run build

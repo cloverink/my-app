@@ -1,19 +1,11 @@
 name: Prepare NodeJS
 description: Setup and Cache NodeJS
 
-# inputs:
-#   node-version:
-#     description: NodeJS version
-#     required: true
-#     default: 16.15.1
-#   path:
-#     description: Cache path
-#     required: true
-#     default: '**/node_modules'
-#   key:
-#     description: Cache Name
-#     required: true
-#     default: modules-${{ hashFiles('package-lock.json') }}
+inputs:
+  node-version:
+    description: NodeJS version
+    required: true
+    default: 16.15.1
 
 runs:
   using: "composite"
@@ -21,7 +13,7 @@ runs:
     - name: 🐢 Setup Node
       uses: actions/setup-node@v3
       with:
-        node-version: 16.15.1
+        node-version: ${{ input.node-version }}
 
     - name: 💵 Cache dependencies
       id: cache
