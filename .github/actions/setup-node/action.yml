@@ -31,5 +31,6 @@ runs:
         key: modules-${{ hashFiles('package-lock.json') }}
 
     - name: ⬇️ Install Dependencies
+      shell: bash
       if: steps.cache.outputs.cache-hit != 'true'
       run: npm install
