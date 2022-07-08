@@ -16,6 +16,7 @@ description: Setup and Cache NodeJS
 #     default: modules-${{ hashFiles('package-lock.json') }}
 
 runs:
+  using: "composite"
   steps:
     - name: 🐢 Setup Node
       shell: bash
