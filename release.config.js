@@ -14,13 +14,7 @@ module.exports = {
         message:
           'chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
       }
-    ],
-    [
-      'semantic-release-github-pullrequest',
-      {
-        assets: ['CHANGELOG.md'],
-        baseRef: 'main'
-      }
     ]
-  ]
+  ],
+  branches: ['master', { name: 'feat/*', channel: 'beta', prerelease: true }]
 };
