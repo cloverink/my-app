@@ -1,4 +1,4 @@
-name: Release
+name: Pre-Release
 
 env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -7,7 +7,7 @@ env:
 on:
   push:
     branches:
-      - master
+      - feat/*
 
 jobs:
   setup:
